@@ -3,22 +3,20 @@ import { Navbar, Footer } from "@/components";
 
 // sections
 import Hero from "./hero";
-import VideoIntro from "./video-intro";
 import Feature from "./feature";
-import MobileConvenience from "./mobile-convenience";
-import Testimonials from "./testimonials";
-import Faqs from "./faqs";
+import NewProduct from "./new-product";
+import Testimonials from "./about-us";
+import Contact from "./contacts";
 
 export default function Campaign() {
   return (
     <>
       <Navbar />
       <Hero />
-      <VideoIntro />
       <Feature />
-      <MobileConvenience />
+      <NewProduct />
       <Testimonials />
-      <Faqs />
+      <Contact />
       <Footer />
     </>
   );

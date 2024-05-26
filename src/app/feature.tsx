@@ -2,40 +2,41 @@
 
 import React from "react";
 import { Typography } from "@material-tailwind/react";
+import Image from "next/image";
 
 import {
-  CursorArrowRaysIcon,
   HeartIcon,
-  LightBulbIcon,
-  LockClosedIcon,
+  TrophyIcon,
+  PencilSquareIcon,
+  ArrowPathIcon
 } from "@heroicons/react/24/solid";
 
 import FeatureCard from "../components/feature-card";
 
 const FEATURES = [
   {
-    icon: CursorArrowRaysIcon,
-    title: "Expert Instructors",
+    icon: TrophyIcon,
+    title: "Optimal Nutrition",
     children:
-      "Learn from the best. Our instructors are industry experts, academics, and seasoned professionals dedicated to helping you.",
+      "Small meals, multiple times a day, promoting healthier digestion and overall well-being.",
   },
   {
     icon: HeartIcon,
-    title: "Interactive Learning",
+    title: "Digestive Health",
     children:
-      "Engage with interactive quizzes, hands-on exercises, and discussion forums to reinforce your understanding and connect.",
+      "Improves digestive tract health, enhances nutritional absorption, and reduces feeding time anxiety.",
   },
   {
-    icon: LockClosedIcon,
-    title: "Achievement Unlocked",
+    icon: PencilSquareIcon,
+    title: "Customized Feeding",
     children:
-      "Earn certificates and badges as you complete courses, showcasing your newfound skills to the world.",
+      "Efficiently manages your stable by catering to each horse's individual feeding schedule and needs.",
   },
   {
-    icon: LightBulbIcon,
-    title: "Personalized Progress Tracking",
+    icon: ArrowPathIcon,
+    title: "Natural Feeding Cycles",
     children:
-      "Stay on top of your learning journey with progress tracking and personalized recommendations to keep you motivated.",
+      "Mimics natural feeding conditions, allowing horses to eat at their own pace day and night.",
   },
 ];
 
@@ -44,19 +45,28 @@ export function Features() {
     <section className="py-28 px-4">
       <div className="container mx-auto mb-20 text-center">
         <Typography color="blue-gray" className="mb-2 font-bold uppercase">
-          Your Learning App
+          TheSmartFeeder
         </Typography>
         <Typography variant="h1" color="blue-gray" className="mb-4">
-          Diverse Learning Resources
+          The Benefits of TheSmartFeeder for Your Equine Athlete
         </Typography>
         <Typography
           variant="lead"
           className="mx-auto w-full px-4 !text-gray-500 lg:w-11/12 lg:px-8 "
         >
-          Access your learning materials on the go. Whether you&apos;re
-          commuting, waiting for a friend, or just have a few minutes to spare,
-          our app fits seamlessly into your busy life.
+          Investing in your equine athlete&apos;s nutrition can significantly impact their performance and well-being.
+          TheSmartFeeder offers a range of benefits tailored to enhance your horse&apos;s health, stamina, and overall athletic 
+            performance.
         </Typography>
+        <div>
+          <Image
+            width={800}
+            height={559}
+            src="/image/thesmartfeeder_cartaz.png"
+            alt="tsf barn"
+            className="mx-auto w-full max-w-[400px] h-auto max-h-[30rem] md:max-h-[36rem] lg:translate-y-10 rounded-xl"
+          />
+        </div>
       </div>
       <div className="container mx-auto grid max-w-6xl grid-cols-1 gap-4 gap-y-12 md:grid-cols-2">
         {FEATURES.map((props, idx) => (

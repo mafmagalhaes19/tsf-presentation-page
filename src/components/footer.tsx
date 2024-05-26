@@ -2,7 +2,7 @@
 import Image from "next/image";
 import { Typography, IconButton, Button } from "@material-tailwind/react";
 
-const LINKS = ["About Us", "Careers", "Press", "Blog", "Pricing"];
+// const LINKS = ["About Us", "Careers", "Press", "Blog", "Pricing"];
 const CURRENT_YEAR = new Date().getFullYear();
 
 export function Footer() {
@@ -11,7 +11,7 @@ export function Footer() {
       <div className="container mx-auto">
         <div className="flex flex-wrap justify-center gap-8 md:justify-between">
           <div className="text-center md:text-left">
-            <Typography
+            {/* <Typography
               as="a"
               href="https://www.material-tailwind.com"
               target="_blank"
@@ -23,9 +23,9 @@ export function Footer() {
             </Typography>
             <Typography color="white" className="mb-12 font-normal">
               The reward for getting on the stage is fame.
-            </Typography>
+            </Typography> */}
             <ul className="flex flex-wrap items-center justify-center md:justify-start">
-              {LINKS.map((link, idx) => (
+              {/* {LINKS.map((link, idx) => (
                 <li key={link}>
                   <Typography
                     as="a"
@@ -38,11 +38,11 @@ export function Footer() {
                     {link}
                   </Typography>
                 </li>
-              ))}
+              ))} */}
             </ul>
           </div>
           <div className="mt-8 w-full md:mt-0 md:w-auto">
-            <Typography variant="h6" color="white" className="mb-3">
+            {/* <Typography variant="h6" color="white" className="mb-3">
               Get the app
             </Typography>
             <div className="flex flex-col gap-2">
@@ -72,7 +72,7 @@ export function Footer() {
                 />
                 Google Play
               </Button>
-            </div>
+            </div> */}
           </div>
         </div>
         <div className="mt-16 flex flex-wrap items-center justify-center gap-y-4 gap-x-8 border-t border-gray-700 py-7 md:justify-between">
@@ -92,21 +92,20 @@ export function Footer() {
           </Typography>
 
           <div className="flex gap-2">
-            <IconButton variant="text" color="white">
+            {/* <IconButton variant="text" color="white">
               <i className="fa-brands fa-twitter text-2xl not-italic opacity-75"></i>
-            </IconButton>
-            <IconButton variant="text" color="white">
+            </IconButton> */}
+            {/* <IconButton variant="text" color="white">
               <i className="fa-brands fa-linkedin text-2xl not-italic opacity-75"></i>
-            </IconButton>
-            <IconButton variant="text" color="white">
+            </IconButton> */}
+            {/* <IconButton variant="text" color="white">
               <i className="fa-brands fa-facebook text-2xl not-italic opacity-75"></i>
-            </IconButton>
-            <IconButton variant="text" color="white">
-              <i className="fa-brands fa-github text-2xl not-italic opacity-75"></i>
-            </IconButton>
-            <IconButton variant="text" color="white">
-              <i className="fa-brands fa-dribbble text-2xl not-italic opacity-75"></i>
-            </IconButton>
+            </IconButton> */}
+            <a href="https://github.com/mafmagalhaes19" target="_blank">
+              <IconButton variant="text" color="white">
+                <i className="fa-brands fa-github text-2xl not-italic opacity-75"></i>
+              </IconButton>
+            </a>
           </div>
         </div>
       </div>

@@ -8,25 +8,66 @@ import {
 } from "@material-tailwind/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
+// interface NavItemProps {
+//   children: React.ReactNode;
+//   href?: string;
+// }
+// function NavItem({ children, href }: NavItemProps) {
+//   return (
+//     <li>
+//       <Typography
+//         as="a"
+//         href={href || "#"}
+//         target={href ? "_blank" : "_self"}
+//         variant="small"
+//         className="font-medium"
+//       >
+//         {children}
+//       </Typography>
+//     </li>
+//   );
+// }
+
 interface NavItemProps {
   children: React.ReactNode;
   href?: string;
+  onClick?: () => void;
 }
-function NavItem({ children, href }: NavItemProps) {
-  return (
-    <li>
-      <Typography
-        as="a"
-        href={href || "#"}
-        target={href ? "_blank" : "_self"}
-        variant="small"
-        className="font-medium"
-      >
-        {children}
-      </Typography>
-    </li>
-  );
+
+function NavItem({ children, href, onClick }: NavItemProps) {
+  const isAnchor = !!href;
+
+  if (isAnchor) {
+    return (
+      <li>
+        <Typography
+          as="a"
+          href={href || "#"}
+          target={href ? "_blank" : "_self"}
+          variant="small"
+          className="font-medium"
+        >
+          {children}
+        </Typography>
+      </li>
+    );
+  } else {
+    return (
+      <li>
+        <Typography
+          as="div"
+          onClick={onClick}
+          variant="small"
+          className="font-medium"
+          style={{ cursor: "pointer" }}
+        >
+          {children}
+        </Typography>
+      </li>
+    );
+  }
 }
+
 
 export function Navbar() {
   const [open, setOpen] = React.useState(false);
@@ -66,7 +107,7 @@ export function Navbar() {
       className="fixed top-0 z-50 border-0"
     >
       <div className="container mx-auto flex items-center justify-between">
-        <Typography
+        {/* <Typography
           as="a"
           href="https://www.material-tailwind.com"
           target="_blank"
@@ -74,45 +115,54 @@ export function Navbar() {
           color={isScrolling ? "gray" : "white"}
         >
           Material Tailwind
-        </Typography>
+        </Typography> */}
         <ul
           className={`ml-10 hidden items-center gap-6 lg:flex ${
             isScrolling ? "text-gray-900" : "text-white"
           }`}
         >
-          <NavItem>Home</NavItem>
-          <NavItem>About Us</NavItem>
-          <NavItem>Contact Us</NavItem>
-          <NavItem href="https://www.material-tailwind.com/docs/react/installation">
-            Docs
+          <NavItem onClick={() => {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          }}>
+            Home
+          </NavItem>
+          
+          <NavItem onClick={() => {
+            window.scrollTo({
+              top: document.getElementById('about-us')?.offsetTop ?? 0,
+              behavior: 'smooth'
+            });
+          }}>
+            About Us
+          </NavItem>
+
+          <NavItem onClick={() => {
+            window.scrollTo({
+              top: document.getElementById('contacts')?.offsetTop ?? 0,
+              behavior: 'smooth'
+            });
+          }}>
+            Contacts
           </NavItem>
         </ul>
         <div className="hidden gap-2 lg:flex lg:items-center">
-          <IconButton
-            variant="text"
-            color={isScrolling ? "gray" : "white"}
-            size="sm"
-          >
-            <i className="fa-brands fa-twitter text-base" />
-          </IconButton>
-          <IconButton
-            variant="text"
-            color={isScrolling ? "gray" : "white"}
-            size="sm"
-          >
-            <i className="fa-brands fa-facebook text-base" />
-          </IconButton>
-          <IconButton
-            variant="text"
-            color={isScrolling ? "gray" : "white"}
-            size="sm"
-          >
-            <i className="fa-brands fa-instagram text-base" />
-          </IconButton>
-          <a href="https://www.material-tailwind.com/blocks" target="_blank">
-            <Button color={isScrolling ? "gray" : "white"} size="sm">
-              Blocks
-            </Button>
+          <a href="https://www.facebook.com/TheSmartFeeder" target="_blank">
+            <IconButton
+              variant="text"
+              color={isScrolling ? "gray" : "white"}
+              size="sm"
+            >
+              <i className="fa-brands fa-facebook text-base" />
+            </IconButton>
+          </a>
+          <a href="https://www.instagram.com/301horses/" target="_blank">
+            <IconButton
+              variant="text"
+              color={isScrolling ? "gray" : "white"}
+              size="sm"
+            >
+              <i className="fa-brands fa-instagram text-base" />
+            </IconButton>
           </a>
         </div>
         <IconButton
@@ -131,27 +181,26 @@ export function Navbar() {
       <Collapse open={open}>
         <div className="container mx-auto mt-4 rounded-lg border-t border-blue-gray-50 bg-white px-6 py-5">
           <ul className="flex flex-col gap-4 text-blue-gray-900">
-            <NavItem>Home</NavItem>
-            <NavItem>About Us</NavItem>
-            <NavItem>Contact Us</NavItem>
             <NavItem href="https://www.material-tailwind.com/docs/react/installation">
-              Docs
+              Home
+            </NavItem>
+            <NavItem href="https://www.material-tailwind.com/docs/react/installation">
+              About Us
+            </NavItem>
+            <NavItem href="https://www.material-tailwind.com/docs/react/installation">
+              Contact Us
             </NavItem>
           </ul>
           <div className="mt-4 flex items-center gap-2">
-            <IconButton variant="text" color="gray" size="sm">
-              <i className="fa-brands fa-twitter text-base" />
-            </IconButton>
-            <IconButton variant="text" color="gray" size="sm">
-              <i className="fa-brands fa-facebook text-base" />
-            </IconButton>
-            <IconButton variant="text" color="gray" size="sm">
-              <i className="fa-brands fa-instagram text-base" />
-            </IconButton>
-            <a href="https://www.material-tailwind.com/blocks" target="_blank">
-              <Button color="gray" size="sm" className="ml-auto">
-                Blocks
-              </Button>
+            <a href="https://www.facebook.com/TheSmartFeeder" target="_blank">
+              <IconButton variant="text" color="gray" size="sm">
+                <i className="fa-brands fa-facebook text-base" />
+              </IconButton>
+            </a>
+            <a href="https://www.instagram.com/301horses/" target="_blank">
+              <IconButton variant="text" color="gray" size="sm">
+                <i className="fa-brands fa-instagram text-base" />
+              </IconButton>
             </a>
           </div>
         </div>
